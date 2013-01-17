@@ -86,9 +86,17 @@ class UsersController < ApplicationController
   end
 
   def after_login
+
         @user = User.find_by_email(params[:email])
         signin_as(@user)
-  end
+        if @user != nil 
+            flash[:notice] = "Successful Login: Logged in as #{@user.name}"
+        redirect_to user_path(@user)
+        else 
+          flash[:notice] = "Failed Login: Please try again"
+        redirect_to login_path
+      end
+   end
 
 
 def signin_as(user)
