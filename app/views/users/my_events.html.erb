@@ -1,0 +1,4 @@
+<h1><%=current_user.name%>s Events </h1>
+<% @events.each do |event|%>
+<%=event.event.title%>
+<%end%>
