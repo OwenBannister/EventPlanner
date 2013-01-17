@@ -6,13 +6,23 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
+<style type="text/css">
+body {background-image:url('/assets/default-wallpaper-abstract.png');background-position:center top; background-repeat:no-repeat; -moz-background-size: cover;
+-webkit-background-size: cover;
+-o-background-size: cover;
+background-size: cover;}
+
+
+</style>
 <body>
+	  <div class="container well">
   <%= render partial: "layouts/header" %>
 
       <% flash.each do |key, value| %>
     <%= content_tag(:div, value, class: "alert alert-#{key}") %>
     <% end  %>
 <%= yield %>
-
+</div>
 </body>
 </html>
