@@ -86,6 +86,18 @@ class UsersController < ApplicationController
   end
 
   def after_login
-       
+        @user = User.find_by_email(params[:email])
+        signin_as(@user)
+       @test = params.inspect
   end
+
+
+def signin_as(user)
+  if user != nil then
+    session[:user_id] = user.id
+    @current_user = user
+  end
+end
+
+
 end
