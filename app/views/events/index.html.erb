@@ -6,8 +6,9 @@
     <th>Duration</th>
     <th>Date</th>
     <th>Time</th>
-    <th>Max users</th>
     <th>Min users</th>
+    <th>Current users</th>
+    <th>Max users</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,8 +19,9 @@
     <td><%= event.duration %></td>
     <td><%= event.date %></td>
     <td><%= event.time %></td>
-    <td><%= event.max_users %></td>
     <td><%= event.min_users %></td>
+    <td><%= event.current_users %></td>
+    <td><%= event.max_users %></td>
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

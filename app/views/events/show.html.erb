@@ -25,13 +25,18 @@
 </p>
 
 <p>
-  <b>Max users:</b>
-  <%= @event.max_users %>
+  <b>Min users:</b>
+  <%= @event.min_users %>
 </p>
 
 <p>
-  <b>Min users:</b>
-  <%= @event.min_users %>
+  <b>Current users:</b>
+  <%= @event.current_users %>
+</p>
+
+<p>
+  <b>Max users:</b>
+  <%= @event.max_users %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

@@ -1,4 +1,4 @@
 class Event < ActiveRecord::Base
-  attr_accessible :date, :duration, :max_users, :min_users, :time, :title
+  attr_accessible :date, :duration, :max_users, :min_users, :time, :title, :current_users
   has_many :users, :class_name => "User"
 end
