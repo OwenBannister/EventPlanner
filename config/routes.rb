@@ -5,6 +5,7 @@ EventPlanner::Application.routes.draw do
   root :to => "events#index"
   match '/login', to: 'users#login'
   match '/after_login', to: 'users#after_login'
+  match '/logout', to: 'users#logout', via: :delete
 
   match '/signup', to: 'users#new'
 
