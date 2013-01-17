@@ -1,4 +1,44 @@
 <h1><%=current_user.name%>s Events </h1>
-<% @events.each do |event|%>
-<%=event.event.title%>
-<%end%>
+<table width="100%" class="well">
+  <tr>
+    <td colspan="10">
+      <h3>Events Signed Up For</h3>
+    </td>
+  </tr>
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Duration</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Min users</th>
+    <th>Current users</th>
+    <th>Max users</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% if @events_in.count ==0 then %>
+      <tr style="text-align:center">
+    <td style="color:red"> No  events</td>
+  </tr>
+<% end %>
+
+<% @events_in.sort { |a,b| a <=> b }.each do |event| %>
+  <tr style="text-align:center">
+    <td><%= link_to event_path(event.id) do %><img class="span1" src=<%= "#{event.image}" %> alt="some_text"><%end%></td>
+    <td><%= link_to event_path(event.id) do %><%= event.title %><%end%></td>
+    <td><%= event.duration %></td>
+    <td><%= event.date.strftime("%m/%d/%Y") %></td>
+    <td><%= event.time.strftime("%I:%M%p") %></td>
+    <td><%= event.min_users %></td>
+    <td><%= event.current_users %></td>
+    <td><%= event.max_users %></td>
+    <td><%= link_to 'Show', event %></td>
+    <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+  <br />
+</table>

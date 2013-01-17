@@ -13,8 +13,8 @@
 
 <% @users.each do |user| %>
   <tr style="text-align:center">
- <td><img class="span1" src=<%= "#{user.image}" %> alt="some_text"></td>
-    <td><%= user.name %></td>
+ <td><%= link_to user_path(user.id) do %><img class="span1" src=<%= "#{user.image}" %> alt="some_text"><%end%></td>
+    <td><%= link_to user_path(user.id) do %><%= user.name %><%end%></td>
     <td><%= user.email %></td>
     <td><%= user.phone_number %></td>
     <td><%= link_to 'Show', user %></td>

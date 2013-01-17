@@ -115,10 +115,13 @@ def signin_as(user)
 end
 
 def my_events
-  @result = []
-@events = Enrollment.select {|en| en.user_id == current_user.id}.each do |enrollment|
-  @result  << Event.find_by_id(enrollment.event_id)
-end
+      enrollments_in = Enrollment.select {|en| en.user_id == current_user.id}
+      
+      @events_in = []
+         enrollments_in.each do |en| 
+        @events_in << Event.find_by_id(en.event_id)
+      end
+
   end
 
 

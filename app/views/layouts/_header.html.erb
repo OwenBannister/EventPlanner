@@ -22,7 +22,17 @@
             </a>
           </li>
           <li class="divider-vertical"></li>
-
+     <% if @current_page == :my_events %>
+            <li class="active">
+          <% else %>
+            <li>
+          <% end %>
+          <a href="<%= my_events_path %>">
+            <i class="icon-list-alt">
+            </i> My Events
+          </a>
+          </li>
+          <li class="divider-vertical"></li>
           <% if @current_page == :users %>
             <li class="active">
           <% else %>
@@ -34,6 +44,8 @@
           </a>
           </li>
           <li class="divider-vertical"></li>
+
+         
         </ul>
         <% if !signed_in? then %>
           <ul class="nav">

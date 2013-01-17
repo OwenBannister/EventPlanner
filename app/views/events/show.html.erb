@@ -48,10 +48,14 @@
 </div>
 <div class="span5" style="min-height:300px">
 <% @others_signed_up.each do |user|%>
-<div class = "span2">
+<div class = "span2 well">
 <%= "#{user.name}" %>
+<br />
 <%= "#{user.email}" %>
+<br />
 <%= "#{user.phone_number}" %>
+<br />
+<img class="span1" src=<%= "#{user.image}" %> alt="some_text">
 </div>
 <%end%>
 </div>

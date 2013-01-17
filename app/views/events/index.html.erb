@@ -32,8 +32,8 @@
 
 <% @events_in.sort { |a,b| a <=> b }.each do |event| %>
   <tr style="text-align:center">
-    <td><img class="span1" src=<%= "#{event.image}" %> alt="some_text"></td>
-    <td><%= event.title %></td>
+    <td><%= link_to event_path(event.id) do %><img class="span1" src=<%= "#{event.image}" %> alt="some_text"><%end%></td>
+    <td><%= link_to event_path(event.id) do %><%= event.title %><%end%></td>
     <td><%= event.duration %></td>
     <td><%= event.date.strftime("%m/%d/%Y") %></td>
     <td><%= event.time.strftime("%I:%M%p") %></td>
@@ -81,8 +81,8 @@
 <% end %>
 <% @events_not_in.sort { |a,b| a <=> b }.each do |event| %>
   <tr>
-        <td><img class="span1" src=<%= "#{event.image}" %> alt="some_text"></td>
-    <td><%= event.title %></td>
+        <td><%= link_to event_path(event.id) do %><img class="span1" src=<%= "#{event.image}" %> alt="some_text"><%end%></td>
+    <td><%= link_to event_path(event.id) do %><%= event.title %><%end%></td>
     <td><%= event.duration %></td>
     <td><%= event.date %></td>
     <td><%= event.time %></td>
