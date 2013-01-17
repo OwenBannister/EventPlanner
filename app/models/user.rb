@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation, :phone_number
   has_secure_password
+ has_many :event, :class_name => "Event"
 
   before_save { |user| user.email = email.downcase }
   validates :name, presence: true

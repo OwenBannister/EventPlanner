@@ -80,4 +80,13 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def signup
+  @event = Event.find_by_id(params[:id])
+  @user = User.find_by_id(session[:user_id])
+    @e = Enrollment.new
+    @e.event = @event
+    @e.user = @user 
+
+  end
 end

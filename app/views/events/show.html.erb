@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <b>ID:</b>
+  <%= @event.id %>
+</p>
 
 <p>
   <b>Title:</b>
@@ -29,7 +33,6 @@
   <b>Min users:</b>
   <%= @event.min_users %>
 </p>
-
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
