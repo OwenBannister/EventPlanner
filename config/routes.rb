@@ -3,7 +3,8 @@ EventPlanner::Application.routes.draw do
   resources :events
 
   root :to => "events#index"
-
+  match '/login', to: 'users#login'
+  match '/afterlogin', to: 'users#after_login'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
