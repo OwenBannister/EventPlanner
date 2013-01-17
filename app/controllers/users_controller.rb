@@ -44,6 +44,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        signin_as @user
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -83,6 +84,11 @@ class UsersController < ApplicationController
 
   def login
        
+  end
+
+  def logout
+    signout
+    redirect_to root_path
   end
 
   def after_login

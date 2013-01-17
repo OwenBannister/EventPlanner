@@ -16,8 +16,11 @@
           <% else %>
             <li>
           <% end %>
-          <a href="<%= events_path %>"><i class="icon-list-alt">
-          </i> All Events</a></li>
+            <a href="<%= events_path %>">
+              <i class="icon-list-alt"></i>
+              All Events
+            </a>
+          </li>
           <li class="divider-vertical"></li>
 
           <% if @current_page == :users %>
@@ -25,28 +28,35 @@
           <% else %>
             <li>
           <% end %>
-          <a href="<%= users_path %>"><i class="icon-list-alt">
-          </i> All Users</a></li>
+          <a href="<%= users_path %>">
+            <i class="icon-list-alt">
+            </i> All Users
+          </a>
+          </li>
           <li class="divider-vertical"></li>
         </ul>
-           <% if !signed_in? then %>
-         <ul class="nav">
+        <% if !signed_in? then %>
+          <ul class="nav">
             <li>
-          <a href="<%= login_path %>"><i class="icon-list-alt">
-          </i> Login</a></li>
-         </ul>
-
-         <%else%>
-     <ul class="nav">
+              <a href="<%= login_path %>">
+                <i class="icon-list-alt"></i>
+                Login
+              </a>
+            </li>
+          </ul>
+        <%else%>
+          <ul class="nav">
             <li>
-          <a href="<%= user_path(current_user) %>"><i class="icon-list-alt">
-          </i> <%="Logged in as: #{current_user.name} "%></a></li>
-
-          
-             </ul>
-
-         <%end%>
-
+              <a href="<%= user_path(current_user) %>">
+                <i class="icon-list-alt"></i> 
+                <%="Logged in as: #{current_user.name} "%>
+              </a>
+            </li>
+            <li>
+              <%= link_to "Sign out", logout_path, method: "delete" %>
+            </li>
+          </ul>
+        <%end%>
       </div>
     </div>
   </div>
