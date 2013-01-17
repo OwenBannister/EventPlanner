@@ -44,7 +44,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        signin_as @user
+        if signed_in?
+          signin_as @user
+        end
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else

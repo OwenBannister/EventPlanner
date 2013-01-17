@@ -2,20 +2,24 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    enrollments_in = Enrollment.select {|en| en.user_id == current_user.id}
-    
-    @events_in = []
-       enrollments_in.each do |en| 
-      @events_in << Event.find_by_id(en.event_id)
-    end
+    if current_user == nil
+      redirect_to login_path
+    else
+      enrollments_in = Enrollment.select {|en| en.user_id == current_user.id}
+      
+      @events_in = []
+         enrollments_in.each do |en| 
+        @events_in << Event.find_by_id(en.event_id)
+      end
 
-    @events_not_in = Event.all - @events_in
+      @events_not_in = Event.all - @events_in
 
- 
+   
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @events }
+      end
     end
   end
 
@@ -56,9 +60,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
+    @event.update_attributes(:current_users =>  0)
+
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -101,10 +107,12 @@ class EventsController < ApplicationController
     @e = Enrollment.new
     @e.event = @event
     @e.user = @user
-    if !@e.save then
+    @event.update_attributes(:current_users =>  @event.current_users+1)
+    if !@e.save && !@event.save then
         flash[:notice] = "Could not sign up for event"
         redirect_to events_path
     end
+
 
   end
 end
