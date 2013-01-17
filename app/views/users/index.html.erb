@@ -1,7 +1,8 @@
 <h1>Listing users</h1>
 
-<table>
+<table width="100%">
   <tr>
+    <th>Image</th>
     <th>Name</th>
     <th>Email</th>
     <th>Phone number</th>
@@ -11,7 +12,8 @@
   </tr>
 
 <% @users.each do |user| %>
-  <tr>
+  <tr style="text-align:center">
+ <td><img class="span1" src=<%= "#{user.image}" %> alt="some_text"></td>
     <td><%= user.name %></td>
     <td><%= user.email %></td>
     <td><%= user.phone_number %></td>

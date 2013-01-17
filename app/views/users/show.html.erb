@@ -1,4 +1,4 @@
-
+<div class="span6">
 <p>
   <b>Name:</b>
   <%= @user.name %>
@@ -17,3 +17,8 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+</div>
+<div class="span5">
+	<img class="span4" src=<%= "#{@user.image}" %> alt="some_text">
+	</div>
+</div>

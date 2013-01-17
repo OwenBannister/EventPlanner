@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation, :phone_number
+  attr_accessible :email, :name, :password, :password_confirmation, :phone_number, :image
   has_secure_password
  has_many :event, :class_name => "Event"
 
