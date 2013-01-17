@@ -3,9 +3,8 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Password digest</th>
-    <th>Phone number</th>
     <th>Email</th>
+    <th>Phone number</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,9 +13,8 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.name %></td>
-    <td><%= user.password_digest %></td>
-    <td><%= user.phone_number %></td>
     <td><%= user.email %></td>
+    <td><%= user.phone_number %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -5,6 +5,9 @@ EventPlanner::Application.routes.draw do
   root :to => "events#index"
   match '/login', to: 'users#login'
   match '/after_login', to: 'users#after_login'
+
+  match '/signup', to: 'users#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
