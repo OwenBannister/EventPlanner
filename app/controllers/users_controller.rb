@@ -88,7 +88,6 @@ class UsersController < ApplicationController
   def after_login
         @user = User.find_by_email(params[:email])
         signin_as(@user)
-       @test = params.inspect
   end
 
 

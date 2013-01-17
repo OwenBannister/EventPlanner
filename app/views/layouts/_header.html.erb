@@ -29,11 +29,21 @@
           </i> All Users</a></li>
           <li class="divider-vertical"></li>
         </ul>
+           <% if !signed_in? then %>
          <ul class="nav">
             <li>
           <a href="<%= login_path %>"><i class="icon-list-alt">
           </i> Login</a></li>
          </ul>
+
+         <%else%>
+     <ul class="nav">
+            <li>
+          <a href="<%= user_path(current_user) %>"><i class="icon-list-alt">
+          </i> <%="Logged in as: #{current_user.name} "%></a></li>
+         </ul>
+
+         <%end%>
 
       </div>
     </div>
