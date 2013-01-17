@@ -1,0 +1,36 @@
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a class="brand" href="<%= root_path %>" name="top">EventPlanner</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="divider-vertical"></li>
+          <% if @current_page == :events %>
+            <li class="active">
+          <% else %>
+            <li>
+          <% end %>
+          <a href="<%= events_path %>"><i class="icon-list-alt">
+          </i> All Events</a></li>
+          <li class="divider-vertical"></li>
+
+          <% if @current_page == :users %>
+            <li class="active">
+          <% else %>
+            <li>
+          <% end %>
+          <a href="<%= users_path %>"><i class="icon-list-alt">
+          </i> All Users</a></li>
+          <li class="divider-vertical"></li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>
