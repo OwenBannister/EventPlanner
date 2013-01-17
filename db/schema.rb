@@ -39,9 +39,6 @@ ActiveRecord::Schema.define(:version => 20130117230025) do
     t.string   "email"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "remember_token"
   end
-
-  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
