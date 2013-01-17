@@ -3,7 +3,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     if current_user == nil
-      redirect_to login_path
+      flash[:notice] = 'Please register or sign in to continue.'
+      redirect_to root_path
     else
       enrollments_in = Enrollment.select {|en| en.user_id == current_user.id}
       
