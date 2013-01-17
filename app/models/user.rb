@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
     uniqueness: { case_sensitive: false }
   validates :password, presence: true
   validates :password_confirmation, presence: true
+  VALID_NUMBER_REGEX = /\A[0-9]+\z/
+  validates :phone_number, presence: true, format: { with: VALID_NUMBER_REGEX },
 end
