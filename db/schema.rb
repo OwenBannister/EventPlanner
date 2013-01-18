@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20130118011431) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.integer  "current_users", :default => 0
+    t.string   "image"
   end
 
   create_table "users", :force => true do |t|
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20130118011431) do
     t.string   "email"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "image"
   end
 
 end

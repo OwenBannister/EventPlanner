@@ -18,12 +18,12 @@
 
 <p>
   <b>Date:</b>
-  <%= @event.date %>
+  <%= @event.date.strftime("%I:%M%p") %>
 </p>
 
 <p>
   <b>Time:</b>
-  <%= @event.time %>
+  <%= @event.time.strftime("%m/%d/%Y") %>
 </p>
 
 <p>
@@ -46,7 +46,7 @@
 <%= link_to 'Back', events_path %>
 
 </div>
-<div class="span5">
+<div class="span5" style="min-height:300px">
 <% @others_signed_up.each do |user|%>
 <div class = "span2">
 <%= "#{user.name}" %>
@@ -55,4 +55,6 @@
 </div>
 <%end%>
 </div>
+<img class="span4" src=<%= "#{@event.image}" %> alt="some_text">
 </div>
+
