@@ -2,7 +2,16 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    enrollments_in = Enrollment.select {|en| en.user_id == current_user.id}
+    
+    @events_in = []
+       enrollments_in.each do |en| 
+      @events_in << Event.find_by_id(en.event_id)
+    end
+
+    @events_not_in = Event.all - @events_in
+
+ 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,7 +95,11 @@ class EventsController < ApplicationController
   @user = User.find_by_id(session[:user_id])
     @e = Enrollment.new
     @e.event = @event
-    @e.user = @user 
+    @e.user = @user
+    if !@e.save then
+        flash[:notice] = "Could not sign up for event"
+        redirect_to events_path
+    end
 
   end
 end

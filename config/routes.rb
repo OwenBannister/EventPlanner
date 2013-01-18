@@ -9,6 +9,7 @@ EventPlanner::Application.routes.draw do
 
   match '/event_signup' => 'events#signup', via: [:get]
   match '/signup', to: 'users#new'
+    match '/my_events', to: 'users#my_events'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
