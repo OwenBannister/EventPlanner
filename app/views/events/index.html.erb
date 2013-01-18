@@ -1,6 +1,13 @@
 <h1>Listing events</h1>
 
+
+
 <table>
+  <tr>
+    <td colspan="10">
+      <h3>Events Signed Up For</h3>
+    </td>
+  </tr>
   <tr>
     <th>Title</th>
     <th>Duration</th>
@@ -27,7 +34,24 @@
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-<br />
+  <br />
+  <tr>
+    <td colspan="10">
+      <h3>Other Events</h3>
+    </td>
+  </tr>
+  <tr>
+    <th>Title</th>
+    <th>Duration</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Min users</th>
+    <th>Current users</th>
+    <th>Max users</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
 <% @events_not_in.sort { |a,b| a <=> b }.each do |event| %>
   <tr>
