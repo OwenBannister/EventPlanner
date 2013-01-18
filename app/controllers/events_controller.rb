@@ -2,20 +2,24 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    enrollments_in = Enrollment.select {|en| en.user_id == current_user.id}
-    
-    @events_in = []
-       enrollments_in.each do |en| 
-      @events_in << Event.find_by_id(en.event_id)
-    end
+    if current_user == nil
+      redirect_to login_path
+    else
+      enrollments_in = Enrollment.select {|en| en.user_id == current_user.id}
+      
+      @events_in = []
+         enrollments_in.each do |en| 
+        @events_in << Event.find_by_id(en.event_id)
+      end
 
-    @events_not_in = Event.all - @events_in
+      @events_not_in = Event.all - @events_in
 
- 
+   
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @events }
+      end
     end
   end
 
