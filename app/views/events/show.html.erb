@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+
+<div class="span6">
 <p>
   <b>ID:</b>
   <%= @event.id %>
@@ -42,3 +44,15 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+
+</div>
+<div class="span5">
+<% @others_signed_up.each do |user|%>
+<div class = "span2">
+<%= "#{user.name}" %>
+<%= "#{user.email}" %>
+<%= "#{user.phone_number}" %>
+</div>
+<%end%>
+</div>
+</div>

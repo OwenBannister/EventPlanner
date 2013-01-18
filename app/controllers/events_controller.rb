@@ -27,6 +27,11 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    other_enrollments = Enrollment.select { |en| en.event_id == @event.id}
+    @others_signed_up = []
+    other_enrollments.each do |en|
+       @others_signed_up << User.find_by_id(en.user_id)
+    end
 
     respond_to do |format|
       format.html # show.html.erb

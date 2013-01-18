@@ -2,7 +2,7 @@
 
 
 
-<table>
+<table width="100%">
   <tr>
     <td colspan="10">
       <h3>Events Signed Up For</h3>
@@ -21,7 +21,7 @@
     <th></th>
   </tr>
 <% @events_in.sort { |a,b| a <=> b }.each do |event| %>
-  <tr>
+  <tr style="text-align:center">
     <td><%= event.title %></td>
     <td><%= event.duration %></td>
     <td><%= event.date %></td>
@@ -45,7 +45,7 @@
       <h3>Other Events</h3>
     </td>
   </tr>
-  <tr>
+  <tr style="text-align:center">
     <th>Title</th>
     <th>Duration</th>
     <th>Date</th>
