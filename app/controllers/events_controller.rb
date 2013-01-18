@@ -60,9 +60,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 
+    @event.update_attributes(:current_users =>  0)
+
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_path, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
       else
         format.html { render action: "new" }
@@ -105,10 +107,12 @@ class EventsController < ApplicationController
     @e = Enrollment.new
     @e.event = @event
     @e.user = @user
-    if !@e.save then
+    @event.update_attributes(:current_users =>  @event.current_users+1)
+    if !@e.save && !@event.save then
         flash[:notice] = "Could not sign up for event"
         redirect_to events_path
     end
+
 
   end
 end
